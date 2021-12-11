@@ -13,7 +13,7 @@ const TodoItem = ({todo}) => {
   const {theme} = useContext(ThemeContext);
   const {isLightTheme, light, dark} = theme;
 
-  // Lay state, dispatch de tranh bi nham lan dispatch = state
+  // Lay state, dispatch để tránh bị nhầm dispatch = state
   const [state, dispatch] = useStore();
 
   const {stateEdit, editValues, isCompletes} = state;
