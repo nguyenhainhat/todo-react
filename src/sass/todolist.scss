@@ -1,8 +1,8 @@
 .checkbox-container {
   display: block;
   position: relative;
-  padding-left: 14px;
-  margin-bottom: 18px;
+  padding-left: 26px;
+  margin-top: 20px;
 
   input {
     position: absolute;
@@ -39,7 +39,9 @@
     &:checked ~ .checkmark:after {
       opacity: 0;
       visibility: visible;
+      // 
       transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      // 
     }
   }
 
@@ -54,14 +56,15 @@
 
     &::before {
       content: "";
-      position: absolute;
-      left: 6px;
-      top: 3px;
-      width: 3px;
-      height: 6px;
-      border: solid white;
+      // position: absolute;
+      // left: 6px;
+      // top: 3px;
+      // width: 3px;
+      // height: 6px;
+      // border: solid white;
       border-width: 0 2px 2px 0;
       transform: rotate(45deg);
+      @apply absolute left-2 top-1 w-1 h-2 border-solid border-white;
     }
 
     &:after {
@@ -74,9 +77,19 @@
       width: 3px;
       height: 6px;
       border: solid white;
+      // 
       border-width: 0 2px 2px 0;
       transform: rotate(45deg);
       transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      // 
     }
   }
+
+}
+.active-disable {
+  text-decoration: line-through;
+}
+
+.todo-item_btn {
+  align-self: center;
 }
