@@ -31,6 +31,7 @@
     cursor: pointer;
     height: 0;
     width: 0;
+
     &:checked ~ .checkmark {
       background-color: #db2222;
       transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -82,7 +83,7 @@
       transform: rotate(45deg);
       transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
       // 
-      @apply opacity-0;
+      // @apply opacity-0;
     }
   }
 
