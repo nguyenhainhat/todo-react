@@ -14,7 +14,7 @@ const Navbar = () => {
 
   return (
     <div className='navbar' style={style}>
-      <h1>My Hooks App</h1>
+      <h1>My Todo App</h1>
       <ul>
         <li>Home</li>
         <li>About</li>
