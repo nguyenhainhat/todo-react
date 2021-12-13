@@ -9,13 +9,13 @@ function App() {
   return (
     <div className='App'>
       <ThemeContextProvider>
+        <ThemeToggle />
         <AuthContextProvider>
           <Navbar />
           <StoreTodoProvider>
             <Todos />
           </StoreTodoProvider>
         </AuthContextProvider>
-        <ThemeToggle />
       </ThemeContextProvider>
     </div>
   )
