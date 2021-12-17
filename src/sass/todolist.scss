@@ -1,8 +1,13 @@
+.todoItem{
+  background-color: #fff;
+  display: flex;
+}
 .checkbox-container {
   display: block;
   position: relative;
   padding-left: 26px;
   margin-top: 20px;
+  margin-left: 10px;
 
   input {
     position: absolute;
@@ -53,7 +58,8 @@
     width: 16px;
     height: 16px;
     border: 1px solid #000;
-    border-radius: 2px;
+    border-radius: 50%;
+
 
     &::before {
       content: "";
@@ -67,6 +73,7 @@
       transform: rotate(45deg);
       @apply absolute left-2 top-1 w-1 h-2 border-solid border-white;
     }
+
 
     &:after {
       content: "";
@@ -94,4 +101,43 @@
 
 .todo-item_btn {
   align-self: center;
+  float: right;
+  padding-left: 6px;
 }
+
+.todo-list 
+ {
+
+   ul {
+  padding: 0 10px 10px 10px;
+  list-style-type: none;
+}
+li {
+  width: 80%;
+  padding: 10px;
+  cursor: pointer;
+  margin: 10px 0;
+  border-radius: 4px;
+  &:hover {
+    opacity: 0.7;
+    text-decoration: line-through;
+  }
+  
+}
+ }
+
+ .btn {
+  padding: 10px;
+  border-radius: 4px;
+  outline: transparent;
+  border: transparent;
+
+ } 
+ .btn:hover{
+   background-color: rgb(214, 214, 214);
+ }
+ .btn-edit {
+    margin-right: 5px;
+    color: #4d4d4d;
+   
+ }

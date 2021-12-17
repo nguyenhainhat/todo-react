@@ -30,22 +30,6 @@ body {
   padding: 0;
 }
 
-.todo-list ul {
-  padding: 0 10px 10px 10px;
-  list-style-type: none;
-}
-
-.todo-list li {
-  padding: 10px;
-  cursor: pointer;
-  margin: 10px 0;
-  border-radius: 4px;
-}
-
-.todo-list li:hover {
-  opacity: 0.7;
-  text-decoration: line-through;
-}
 
 form {
   padding: 10px;

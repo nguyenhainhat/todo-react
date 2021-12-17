@@ -6,7 +6,7 @@ import {v4 as uuidv4} from "uuid";
 import "../sass/todolist.scss";
 import { AiFillDelete } from "react-icons/ai";
 import { MdModeEditOutline } from "react-icons/md";
-import { RiAddCircleFill } from "react-icons/ri";
+import { RiAddLine } from "react-icons/ri";
 
 
 const TodoItem = ({todo}) => {
@@ -69,8 +69,8 @@ const TodoItem = ({todo}) => {
   };
 
   return (
-    <div className="todoItem">
-      <label className="checkbox-container">
+    <div className="todoItem flex ">
+      <label className="checkbox-container block relative pl-6 mt-5">
         <input
           type="checkbox"
           readOnly
@@ -100,7 +100,7 @@ const TodoItem = ({todo}) => {
           ""
         ) : (
           <button className="btn btn-edit" onClick={editList ? handleAddList : handleEditList}>
-            {editList ? <RiAddCircleFill/> : <MdModeEditOutline/>}
+            {editList ? <RiAddLine/> : <MdModeEditOutline/>}
           </button>
         )}
         <button className="btn btn-delete" onClick={handleDeleteList}>
