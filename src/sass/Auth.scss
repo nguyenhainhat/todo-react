@@ -1,7 +1,31 @@
-.navbar-auth {
-    padding: 10px;
-    margin-left: 1rem;
-    border: 1px solid #4d4d4d;
-    border-radius: 20px;
-    box-shadow: 0 0 2px 3px #fff;
+.navbar {
+  border: none !important;
+  h1 {
+    margin-bottom: 0;
+  }
+
+  p,
+  h1 {
+    color: #f6bd60;
+  }
+
+  &-auth {
+    width: 60px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    color: black;
+    background: white;
+    border: 2px solid black;
+    box-shadow: 3px 3px 0 black, -3px -3px 0 black, -3px 3px 0 black, 3px -3px 0 black;
+    transition: 500ms ease-in-out;
+    &:hover {
+      box-shadow: 20px 5px 0 black, -20px -5px 0 black;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
 }

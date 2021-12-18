@@ -1,20 +1,104 @@
-.todoItem{
+@mixin checkBox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.transition-animated {
+  transition: all 500ms ease;
+}
+
+.todoItem {
   background-color: #fff;
   display: flex;
+  padding: 4px;
+  border: 1px solid;
+  margin-bottom: 20px;
 }
+
+.btn-form-add {
+  background: transparent;
+  color: #fff;
+  padding: 6px;
+  margin-left: -20px;
+  margin-top: 10px;
+  border: none;
+  cursor: pointer;
+  span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+  }
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    height: 0%;
+    width: 2px;
+    background: #000;
+  }
+  &::before {
+    right: 0;
+    top: 0;
+    @extend .transition-animated;
+  }
+  &::after {
+    left: 0;
+    bottom: 0;
+    @extend .transition-animated;
+  }
+  &:hover{
+    color: #000;
+    background: transparent;
+    &:before {
+      @extend .transition-animated;
+      height: 100%;
+    }
+    &:after {
+      @extend .transition-animated;
+      height: 100%;
+    }
+  }
+  span:before,
+  span:after {
+    position: absolute;
+    content: "";
+    background: #000;
+  }
+  span:before {
+    left: 0;
+    top: 0;
+    width: 0%;
+    height: 2px;
+    @extend .transition-animated;
+  }
+  span:after {
+    right: 0;
+    bottom: 0;
+    width: 0%;
+    height: 2px;
+    @extend .transition-animated;
+  }
+  span:hover:before {
+    width: 100%;
+  }
+  span:hover:after {
+    width: 100%;
+  }
+}
+
 .checkbox-container {
   display: block;
   position: relative;
   padding-left: 26px;
-  margin-top: 20px;
   margin-left: 10px;
 
   input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
+    @include checkBox;
 
     &:checked {
       & ~ .checkmark {
@@ -31,11 +115,7 @@
   }
 
   .checkboxItem {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
+    @include checkBox;
 
     &:checked ~ .checkmark {
       background-color: #db2222;
@@ -45,9 +125,7 @@
     &:checked ~ .checkmark:after {
       opacity: 0;
       visibility: visible;
-      // 
       transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-      // 
     }
   }
 
@@ -57,24 +135,9 @@
     left: 0;
     width: 16px;
     height: 16px;
-    border: 1px solid #000;
+    border: 1px solid #4d4d4d;
     border-radius: 50%;
-
-
-    &::before {
-      content: "";
-      // position: absolute;
-      // left: 6px;
-      // top: 3px;
-      // width: 3px;
-      // height: 6px;
-      // border: solid white;
-      border-width: 0 2px 2px 0;
-      transform: rotate(45deg);
-      @apply absolute left-2 top-1 w-1 h-2 border-solid border-white;
-    }
-
-
+    cursor: pointer;
     &:after {
       content: "";
       position: absolute;
@@ -85,59 +148,145 @@
       width: 3px;
       height: 6px;
       border: solid white;
-      // 
       border-width: 0 2px 2px 0;
       transform: rotate(45deg);
       transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-      // 
-      // @apply opacity-0;
     }
   }
-
 }
+
 .active-disable {
   text-decoration: line-through;
 }
 
 .todo-item_btn {
   align-self: center;
-  float: right;
-  padding-left: 6px;
+  padding-left: 8px;
 }
 
-.todo-list 
- {
-
-   ul {
-  padding: 0 10px 10px 10px;
-  list-style-type: none;
-}
-li {
-  width: 80%;
-  padding: 10px;
-  cursor: pointer;
-  margin: 10px 0;
-  border-radius: 4px;
-  &:hover {
-    opacity: 0.7;
-    text-decoration: line-through;
+.todo-list {
+  border: none !important;
+  ul {
+    padding: 0 10px 10px 10px;
+    list-style-type: none;
   }
-  
+  li {
+    width: 80%;
+    padding: 10px;
+    cursor: pointer;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: none !important;
+    &:hover {
+      opacity: 0.7;
+      text-decoration: line-through;
+    }
+  }
 }
- }
 
- .btn {
+.btn {
+  position: relative;
+  display: inline-block;
   padding: 10px;
   border-radius: 4px;
-  outline: transparent;
-  border: transparent;
+  color: #03e9f4;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+  filter: hue-rotate(0deg);
+  border: 2px solid #473a66;
+  transition: all 0.1s linear;
+  &:hover {
+    border: 1px solid transparent;
+    span {
+      position: absolute;
+      display: block;
 
- } 
- .btn:hover{
-   background-color: rgb(214, 214, 214);
- }
- .btn-edit {
-    margin-right: 5px;
-    color: #4d4d4d;
-   
- }
+      &:nth-child(1) {
+        filter: hue-rotate(0deg);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, #3a86ff);
+        animation: animate1 1s linear infinite;
+      }
+      @keyframes animate1 {
+        0% {
+          left: -100%;
+        }
+        50%,
+        100% {
+          left: 100%;
+        }
+      }
+
+      &:nth-child(2) {
+        filter: hue-rotate(60deg);
+        top: -100%;
+        right: 0;
+        width: 3px;
+        height: 100%;
+        background: linear-gradient(180deg, transparent, #3a86ff);
+        animation: animate2 1s linear infinite;
+        animation-delay: 0.25s;
+      }
+
+      @keyframes animate2 {
+        0% {
+          top: -100%;
+        }
+        50%,
+        100% {
+          top: 100%;
+        }
+      }
+      &:nth-child(3) {
+        filter: hue-rotate(120deg);
+        bottom: 0;
+        right: 0;
+        width: 100%;
+
+        background: linear-gradient(270deg, transparent, #3a86ff);
+        animation: animate3 1s linear infinite;
+        animation-delay: 0.5s;
+      }
+      @keyframes animate3 {
+        0% {
+          right: -100%;
+          height: 3px;
+        }
+        50%,
+        100% {
+          height: 2px;
+          right: 100%;
+        }
+      }
+
+      &:nth-child(4) {
+        filter: hue-rotate(300deg);
+        bottom: -100%;
+        left: 0;
+        width: 3px;
+        height: 100%;
+        background: linear-gradient(360deg, transparent, #3a86ff);
+        animation: animate4 1s linear infinite;
+        animation-delay: 0.75s;
+      }
+      @keyframes animate4 {
+        0% {
+          bottom: -100%;
+        }
+        50%,
+        100% {
+          bottom: 100%;
+        }
+      }
+    }
+  }
+  &-edit {
+    margin-right: 6px;
+  }
+}

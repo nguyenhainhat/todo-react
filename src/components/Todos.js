@@ -1,6 +1,7 @@
 import React, {useContext} from "react";
 import TodoContext from "../contexts/CreateContext";
 import {AuthContext} from "../contexts/AuthContext";
+import {ThemeContext} from "../contexts/ThemeContext";
 import TodoForm from "./TodoForm";
 import TodoItem from "./TodoItem";
 import {useStore} from "../Store";
@@ -12,9 +13,12 @@ const Todos = () => {
   const {todos} = state;
   // Load auth context
   const {isAuthenticated} = useContext(AuthContext);
+  const {theme} = useContext(ThemeContext);
+  const {isLightTheme, light, dark} = theme;
+  const style = isLightTheme ? light : dark;
 
   return (
-    <div className="todo-list">
+    <div className="todo-list" style={style}>
       <TodoForm />
       {isAuthenticated ? (
         <ul>
@@ -23,7 +27,7 @@ const Todos = () => {
           ))}
         </ul>
       ) : (
-        <p style={{textAlign: "center"}}>Not authorised</p>
+        <p style={{textAlign: "center", paddingBottom: '20px'}}>Not authorised</p>
       )}
     </div>
   );

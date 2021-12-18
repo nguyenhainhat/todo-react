@@ -4,10 +4,9 @@ import {DELETE_TODO, EDIT_TODO, STATE_EDIT, ENTER_EDIT, STATE_COMPLETE} from "..
 import {useStore} from "../Store";
 import {v4 as uuidv4} from "uuid";
 import "../sass/todolist.scss";
-import { AiFillDelete } from "react-icons/ai";
-import { MdModeEditOutline } from "react-icons/md";
-import { RiAddLine } from "react-icons/ri";
-
+import {AiFillDelete} from "react-icons/ai";
+import {MdModeEditOutline} from "react-icons/md";
+import {RiAddLine} from "react-icons/ri";
 
 const TodoItem = ({todo}) => {
   const [editList, setEditList] = useState(false);
@@ -69,8 +68,8 @@ const TodoItem = ({todo}) => {
   };
 
   return (
-    <div className="todoItem flex ">
-      <label className="checkbox-container block relative pl-6 mt-5">
+    <div className="todoItem" style={style}>
+      <label className="checkbox-container" style={editList ? {marginTop: '34px'} : {marginTop: '22px'}}>
         <input
           type="checkbox"
           readOnly
@@ -100,11 +99,19 @@ const TodoItem = ({todo}) => {
           ""
         ) : (
           <button className="btn btn-edit" onClick={editList ? handleAddList : handleEditList}>
-            {editList ? <RiAddLine/> : <MdModeEditOutline/>}
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            {editList ? <RiAddLine /> : <MdModeEditOutline />}
           </button>
         )}
         <button className="btn btn-delete" onClick={handleDeleteList}>
-          <AiFillDelete/>
+        <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          <AiFillDelete />
         </button>
       </div>
     </div>

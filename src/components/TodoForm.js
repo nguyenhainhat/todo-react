@@ -5,6 +5,8 @@ import { v4 as uuidv4 } from 'uuid'
 import { ADD_TODO } from '../reducers/types'
 import { useStore } from '../Store'
 import {ENTER_VALUE} from "../reducers/types";
+import "../sass/todolist.scss";
+
 
 const TodoForm = () => {
   // Load context
@@ -52,7 +54,9 @@ const TodoForm = () => {
         value={enterValue}
         required
       />
-      <input type='submit' value='Add' style={style} />
+      <button className='btn-form-add'>
+        <span style={style} >Add</span>
+      </button>
     </form>
   )
 }

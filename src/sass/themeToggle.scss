@@ -8,10 +8,10 @@
   padding: 5px;
   outline: transparent;
   border: transparent;
-
-  .toggle-btn {
+  &-btn {
     position: absolute;
     display: inline-block;
+    cursor: pointer;
     width: 30px;
     height: 30px;
     top: 5px;
@@ -23,13 +23,13 @@
     z-index: 99;
     transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
-  .toggle-active {
+  &-active {
     right: 35px;
     box-shadow: 0 0 2px 3px #fff;
     transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 
-  .toggle-icon {
+  &-icon {
     display: inline-block;
     color: aquamarine;
     padding: 5px 0;

@@ -17,7 +17,7 @@ const Navbar = () => {
     <div className="navbar" style={style}>
       <h1>My Todo App</h1>
 
-      {isAuthenticated ? "You are logged in " : ""}
+      <p>{isAuthenticated ? "You are logged in " : ""}</p>
       <button
         onClick={() => {
           dispatch({
@@ -26,6 +26,7 @@ const Navbar = () => {
         }}
         style={style}
         className="navbar-auth">
+        
         {isAuthenticated ? "Logout" : "Login"}
       </button>
     </div>

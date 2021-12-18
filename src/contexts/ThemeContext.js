@@ -7,12 +7,17 @@ const ThemeContextProvider = ({ children }) => {
   const [theme, setTheme] = useState({
     isLightTheme: true,
     light: {
-      background: 'rgb(240, 240, 240)',
-      color: 'black'
+      background: 'rgb(255, 255, 255, 0.8)',
+      color: 'black',
+      'border': '1px solid #dadde1',
+      transition: 'all 0.2s linear'
     },
     dark: {
       background: 'rgb(39, 39, 39)',
-      color: 'white'
+      color: '#ffff',
+      'border': '1px solid #606770',
+      transition: 'all 0.2s linear'
+
     }
   })
 
