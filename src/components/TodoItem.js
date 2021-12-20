@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from "react";
+import React, {useContext, useState, useEffect, useRef} from "react";
 import {ThemeContext} from "../contexts/ThemeContext";
 import {DELETE_TODO, EDIT_TODO, STATE_EDIT, ENTER_EDIT, STATE_COMPLETE} from "../reducers/types";
 import {useStore} from "../Store";
@@ -19,7 +19,7 @@ const TodoItem = ({todo}) => {
   // Lay state, dispatch để tránh bị nhầm dispatch = state
   const [state, dispatch] = useStore();
 
-  const {stateEdit, editValues, isCompletes} = state;
+  const {stateEdit, editValues, isCompletes, enterValue, todos} = state;
   // console.log(stateEdit, editList, editValues)
   // console.log(isComplete);
   // Style
@@ -42,7 +42,15 @@ const TodoItem = ({todo}) => {
   };
 
   const handleAddList = () => {
-    if (editValues !== "") {
+    if (editValues === "") {
+      dispatch({
+        type: EDIT_TODO,
+        payload: {
+          todos
+        },
+      });
+    }
+    console.log(todo)
       dispatch({
         type: EDIT_TODO,
         payload: {
@@ -56,7 +64,10 @@ const TodoItem = ({todo}) => {
         type: STATE_EDIT,
         payload: null,
       });
-    }
+      dispatch({
+        type: ENTER_EDIT,
+        payload: '',
+      });
   };
 
   const handleEditList = () => {
@@ -69,7 +80,7 @@ const TodoItem = ({todo}) => {
 
   return (
     <div className="todoItem" style={style}>
-      <label className="checkbox-container" style={editList ? {marginTop: '34px'} : {marginTop: '22px'}}>
+      <label className="checkbox-container">
         <input
           type="checkbox"
           readOnly
@@ -81,7 +92,7 @@ const TodoItem = ({todo}) => {
       <li
         key={id}
         style={style}
-        className={isComplete ? "todo-items active-disable" : "todo-items"}>
+        className={isComplete ? "todo-item active-disable" : "todo-item"}>
         {editList ? (
           <input
             type="text"

@@ -47,7 +47,7 @@ input[type="text"] {
   margin: 6px 0;
   border: transparent;
   outline: transparent;
-  box-shadow: 0 0 10px 4px #4d4d4d;
+  box-shadow: 0 0 4px 0 #4d4d4d;
 }
 
 input[type="submit"] {
@@ -64,6 +64,7 @@ input[type="submit"] {
   inset: 0;
   text-align: center;
   z-index: 9999;
+  overflow: auto;
 }
 .start-name {
   position: absolute;
@@ -74,4 +75,14 @@ input[type="submit"] {
 }
 .start-name h1 {
   opacity: 0;
+}
+.start-open {
+  position: fixed;
+  background-color: #fff;
+  inset: 0;
+  transform: scale(0);
+  box-shadow: 0 0 2px 3px #000;
+  border-radius: 40%;
+  z-index: 9999;
+
 }
