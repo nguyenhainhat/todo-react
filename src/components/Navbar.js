@@ -6,8 +6,8 @@ import "../sass/Auth.scss";
 
 const Navbar = () => {
   // Load theme context
-  const {theme} = useContext(ThemeContext);
-  const {isLightTheme, light, dark} = theme;
+  const {themeState} = useContext(ThemeContext);
+  const {isLightTheme, light, dark} = themeState;
   const style = isLightTheme ? light : dark;
 
   // Load auth context

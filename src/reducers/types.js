@@ -9,3 +9,6 @@ export const ENTER_EDIT = 'ENTER_EDIT'
 export const STATE_COMPLETE = 'STATE_COMPLETE'
 
 export const TOGGLE_AUTH = 'TOGGLE_AUTH'
+
+export const THEME_STATE = 'THEME_STATE'
+

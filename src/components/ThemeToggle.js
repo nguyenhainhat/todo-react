@@ -2,10 +2,11 @@ import React, {useContext} from "react";
 import {ThemeContext} from "../contexts/ThemeContext";
 import "../sass/themeToggle.scss";
 const ThemeToggle = () => {
-  const {theme, toggleTheme} = useContext(ThemeContext);
-  const {isLightTheme, light, dark} = theme;
+  const {themeState, toggleTheme} = useContext(ThemeContext);
+  const {isLightTheme, light, dark} = themeState;
   // const style = isLightTheme ? light : dark;
 
+  console.log(isLightTheme)
   // theme: true -> false
 
   return (

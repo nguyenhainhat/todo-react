@@ -10,8 +10,8 @@ import "../sass/todolist.scss";
 
 const TodoForm = () => {
   // Load context
-  const { theme } = useContext(ThemeContext)
-  const { isLightTheme, light, dark } = theme
+  const { themeState } = useContext(ThemeContext)
+  const { isLightTheme, light, dark } = themeState
 
   const [state, dispatch ] = useStore()
 

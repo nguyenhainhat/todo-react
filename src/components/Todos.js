@@ -13,9 +13,9 @@ const Todos = () => {
   const {todos} = state;
   // Load auth context
   const {isAuthenticated} = useContext(AuthContext);
-  const {theme} = useContext(ThemeContext);
+  const {themeState} = useContext(ThemeContext);
 
-  const {isLightTheme, light, dark} = theme;
+  const {isLightTheme, light, dark} = themeState;
   
   const style = isLightTheme ? light : dark;
 

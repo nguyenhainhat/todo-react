@@ -1,37 +1,30 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState, useReducer } from 'react'
+import { themeReducer } from '../reducers/ThemeReducer'
+import {initState} from '../reducers/ThemeReducer'
+import { THEME_STATE } from '../reducers/types'
 
 export const ThemeContext = createContext()
 
 const ThemeContextProvider = ({ children }) => {
-  // State
-  const [theme, setTheme] = useState({
-    isLightTheme: true,
-    light: {
-      background: 'rgb(255, 255, 255, 0.8)',
-      color: 'black',
-      'border': '1px solid #dadde1',
-      transition: 'all 0.2s linear'
-    },
-    dark: {
-      background: 'rgb(39, 39, 39)',
-      color: '#ffff',
-      'border': '1px solid #606770',
-      transition: 'all 0.2s linear'
 
-    }
-  })
+  const [themeState, dispatch] = useReducer(themeReducer, initState)
+  const {isLightTheme} = themeState
+
 
   // Function to toggle theme
   const toggleTheme = () => {
-    setTheme({
-      ...theme,
-      isLightTheme: !theme.isLightTheme
+    dispatch({
+      type: THEME_STATE,
+      payload: {
+        isLightTheme
+      }
+
     })
   }
 
   // Context data
   const themeContextData = {
-    theme,
+    themeState,
     toggleTheme
   }
 
